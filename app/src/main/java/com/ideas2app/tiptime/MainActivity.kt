@@ -2,6 +2,7 @@ package com.ideas2app.tiptime
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import com.ideas2app.tiptime.databinding.ActivityMainBinding
 import java.text.NumberFormat
@@ -19,7 +20,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun calculateTip() {
-        val cost = binding.costOfService.text.toString().toDoubleOrNull()
+        val cost = binding.costOfServiceEditText.text.toString().toDoubleOrNull()
+        binding.tipResult.visibility = View.VISIBLE
         if(cost == null) {
             binding.tipResult.text = ""
             Toast.makeText(this, "Cost of service cannot be empty.", Toast.LENGTH_SHORT).show()
